@@ -1,19 +1,23 @@
 import flet as ft
 
 # Importing the modules
-from modulos.functions import *
+from modulos.icons import *
+from modulos.text import *
+from modulos.membrs_list import *
 
 def main(page:ft.Page):
-    page.title="Container Collapse "
+    page.title="Container Collapse"
     page.theme_mode = ft.ThemeMode.LIGHT
     page.padding = 5
     page.spacing = 10
-    page.scroll = "auto"
+    page.window_max_width=430 # Largura máxima
+    page.window_max_height=1080 # Altura máxima
+    page.scroll="auto"
 
     list_content = ft.Column(scroll="always")
 
     # And add data sample to "list_content"
-    for x in range(0,15):
+    for x in range(0,25):
         list_content.controls.append(
             # Add listile
             ft.ListTile(
@@ -59,7 +63,6 @@ def main(page:ft.Page):
 
         page.padding = 10
         page.spacing = 10
-
         page.update()
 
 
@@ -86,17 +89,14 @@ def main(page:ft.Page):
                 )
             ]),
             ft.Row([
-                # And create circle avatar profile image
-                ft.CircleAvatar(
-                    foreground_image_url="https://avatars.githubusercontent.com/u/91035485?v=4"
-                ),
-                ft.Markdown()
+                user_avatar,
+                share,
             ], alignment="spaceBetween"),
             ft.Row([
-                ft.Text("Your Playlist", color=ft.colors.WHITE, size=25, weight=ft.FontWeight.BOLD, offset=ft.Offset(x=0, y=-0.3)),
+                song_list_title,
             ], alignment="center"),
             ft.Row([
-                ft.IconButton(icon=ft.icons.KEYBOARD_DOUBLE_ARROW_DOWN, icon_color=ft.colors.WHITE, icon_size=30, tooltip="More", offset=ft.Offset(x=0, y=-0.5)),
+                more,
             ], alignment="center"),
 
             # And show you list title here
@@ -111,12 +111,67 @@ def main(page:ft.Page):
         ], scroll="auto")
     )
 
+
+    # Now i make collapse card container here
+    about = ft.Container(
+        height=300,
+        padding=10,
+        
+        
+        content=ft.Column([
+            ft.Row([
+                about_title
+            ]),
+            about_body
+        ], scroll="auto")
+    )
+
+    members = ft.Container(
+        bgcolor=ft.colors.BLACK,
+        padding=10,
+        height=900,
+        
+        content=ft.Column([
+            ft.Row([
+                members_title,
+                members_icon
+            ], alignment="center"),
+            ft.Row([
+                chester,
+                mike
+            ], alignment="spaceBetween"),
+            ft.Row([
+                kyle
+            ], alignment="center"),
+            ft.Row([
+                joe,
+                rob
+            ], alignment="spaceBetween"),
+            ft.Row([
+                dave,
+                brad
+            ], alignment="center"),
+            
+            
+        ], scroll="auto")
+    )
+
+
+
+    # Added containers
     page.add(
         ft.Column([
             ct_con
-        ], scroll="auto"),
-    )
+        ]),
 
+        ft.Column([
+            about
+        ], scroll="auto"),
+
+        ft.Column([
+            members
+        ], scroll="auto")
+    )
 
     page.update()
 ft.app(target=main)
