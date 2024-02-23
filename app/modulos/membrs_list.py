@@ -1,3 +1,4 @@
+# import dependencies
 import flet as ft
 
 chester = ft.Image(

@@ -1,3 +1,4 @@
+# import dependencies
 import flet as ft
 
 # Importing the modules
@@ -6,13 +7,19 @@ from modulos.text import *
 from modulos.membrs_list import *
 
 def main(page:ft.Page):
-    page.title="Container Collapse"
-    page.theme_mode = ft.ThemeMode.LIGHT
+    # Configuring the application view
+    page.title="Music APP"
+    page.theme_mode = ft.ThemeMode.SYSTEM
     page.padding = 5
     page.spacing = 10
-    page.window_max_width=430 # Largura máxima
-    page.window_max_height=1080 # Altura máxima
-    page.scroll="auto"
+    page.window_maximizable = False
+    page.window_minimizable = False
+    page.window_max_width=500 # Maximum width
+    page.window_max_height=1080 # Maximum height
+    page.window_min_width=360 # Minimum width
+    page.window_min_height=640 # Minimum height
+    page.scroll = "auto"
+
 
     list_content = ft.Column(scroll="always")
 
@@ -27,23 +34,21 @@ def main(page:ft.Page):
                     foreground_image_url="https://w7.pngwing.com/pngs/979/599/png-transparent-linkin-park-logo-linkin-park-logo-music-band-miscellaneous-angle-emblem.png"
                 ),
             ),
-            # And add circle image profile
         )
 
     def full_mode(e):
-        # And now add effect container her
-        # This for full screen mode
+        # Added effects container for fullscreen mode
         e.control.height = page.window_height
         e.control.width = page.window_width
         e.control.border_radius = 0
 
-        # And show you back arrow left button here
+        # Showing back button
         e.control.content.controls[0].controls[0].visible = True
         e.control.content.controls[3].visible = True
 
-        # And hide FloatingActionButton
+        # Hide Button Floating Action
         e.control.content.controls[1].controls[1].visible = False
-        # And you circle image position to center
+        # Circle the image position to the center
         e.control.content.controls[1].alignment="center"
 
         # Remove Padding page and spacing
@@ -127,11 +132,12 @@ def main(page:ft.Page):
     )
 
     members = ft.Container(
-        bgcolor=ft.colors.BLACK,
+        bgcolor=ft.colors.ON_SURFACE_VARIANT,
         padding=10,
         height=900,
         
-        content=ft.Column([
+        content=ft.Column(
+            [
             ft.Row([
                 members_title,
                 members_icon
@@ -172,6 +178,6 @@ def main(page:ft.Page):
             members
         ], scroll="auto")
     )
-
+    # Update application view
     page.update()
 ft.app(target=main)
