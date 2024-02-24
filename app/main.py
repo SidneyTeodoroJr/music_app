@@ -12,12 +12,19 @@ def main(page:ft.Page):
     page.theme_mode = ft.ThemeMode.SYSTEM
     page.padding = 5
     page.spacing = 10
+
     page.window_maximizable = False
     page.window_minimizable = False
+
+    page.window_width=500 # Width
+    page.window_height=1080 # Height
+
     page.window_max_width=500 # Maximum width
     page.window_max_height=1080 # Maximum height
+
     page.window_min_width=360 # Minimum width
     page.window_min_height=640 # Minimum height
+
     page.scroll = "auto"
 
 
