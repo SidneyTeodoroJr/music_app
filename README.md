@@ -10,7 +10,7 @@
 
 Bem-vindo ao Music App, um projeto simples de aplicativo desenvolvido usando a biblioteca Python Flet. Esta Aplicação interativa permite aos usuários explorar uma lista de músicas e conhecer os membros da banda.
 
-<a href="https://github.com/SidneyTeodoroJr/music_app/blob/main/print/music_app_print1.png" download>baixar</a>
+<a href="https://github.com/SidneyTeodoroJr/music_app/raw/main/app/build/muicAPP.rar" download>Fazer download para Windows</a>
 </br>
 
 ## Pré-requisitos
